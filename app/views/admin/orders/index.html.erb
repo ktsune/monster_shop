@@ -5,11 +5,11 @@
       <section id="order-<%= order.id %>">
         <li>
         <p>Order: <%= link_to "##{order.id}", admin_user_order_path(order.user_id, order.id) %></p>
-        <p>Ordered By: <%= link_to order.name, admin_user_show_path(order.user_id) %>
+        <p>Ordered By: <%= link_to order.name, admin_user_path(order.user_id) %>
         <p>Created: <%= order.created_at %></p>
         <p>Status: <%= order.status %></p>
         <% if order.packaged? %>
-          <%= button_to "Ship Order", admin_ships_order_path(order), method: :patch %>
+          <%= button_to "Ship Order", admin_order_path(order), method: :patch %>
         <% end %>
         </li>
       </section>

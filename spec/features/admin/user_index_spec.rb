@@ -18,36 +18,36 @@ RSpec.describe 'Admin User Index Page' do
         click_on 'Users'
       end
 
-      expect(current_path).to eq(admin_user_index_path)
+      expect(current_path).to eq(admin_users_path)
 
       within "#user-#{@user.id}" do
-        expect(page).to have_link(@user.name, href: admin_user_show_path(@user.id))
+        expect(page).to have_link(@user.name, href: admin_user_path(@user.id))
         expect(page).to have_content(@user.created_at)
         expect(page).to have_content(@user.role.capitalize)
       end
 
       within "#user-#{@employee.id}" do
-        expect(page).to have_link(@employee.name, href: admin_user_show_path(@employee.id))
+        expect(page).to have_link(@employee.name, href: admin_user_path(@employee.id))
         expect(page).to have_content(@employee.created_at)
         expect(page).to have_content(@employee.role.capitalize)
       end
 
       within "#user-#{@merchant_admin.id}" do
-        expect(page).to have_link(@merchant_admin.name, href: admin_user_show_path(@merchant_admin.id))
+        expect(page).to have_link(@merchant_admin.name, href: admin_user_path(@merchant_admin.id))
         expect(page).to have_content(@merchant_admin.created_at)
         expect(page).to have_content(@merchant_admin.role.capitalize)
       end
     end
 
     it "I can toggle a button to enable or disable a user" do
-      visit admin_user_index_path
+      visit admin_users_path
       expect(@user.enabled).to eq(true)
 
       within "#disable-user-#{@user.id}" do
         click_button 'Disable User'
       end
 
-      expect(current_path).to eq(admin_user_index_path)
+      expect(current_path).to eq(admin_users_path)
       expect(page).to have_content("The account for #{@user.name} is now disabled.")
 
       expect(@user.reload.enabled).to eq(false)
@@ -56,13 +56,13 @@ RSpec.describe 'Admin User Index Page' do
         click_button 'Enable User'
       end
 
-      expect(current_path).to eq(admin_user_index_path)
+      expect(current_path).to eq(admin_users_path)
       expect(page).to have_content("The account for #{@user.name} is now enabled.")
       expect(@user.reload.enabled).to eq(true)
     end
 
     it "A disabled user cannot log in" do
-      visit admin_user_index_path
+      visit admin_users_path
       expect(@user.enabled).to eq(true)
 
       within "#disable-user-#{@user.id}" do

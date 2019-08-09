@@ -8,7 +8,7 @@ RSpec.describe 'Admin' do
       @ogre = @megan.items.create!(name: 'Ogre', description: "I'm an Ogre!", price: 20, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', active: true, inventory: 5)
       @giant = @megan.items.create!(name: 'Giant', description: "I'm a Giant!", price: 20, image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw', active: true, inventory: 5)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@larry)
-      visit admin_merchant_index_path
+      visit admin_merchants_path
     end
 
     it "I see merchant name, city, and state displayed on the page" do
@@ -20,7 +20,7 @@ RSpec.describe 'Admin' do
     it "The merchant's name is a link to their merchant dashboard" do
       click_link "Megans Marmalades"
 
-      expect(current_path).to eq(admin_merchant_show_path(@megan.id))
+      expect(current_path).to eq(admin_merchant_path(@megan.id))
     end
 
     it "I can toggle a button to enable or disable a merchant" do
@@ -29,7 +29,7 @@ RSpec.describe 'Admin' do
       click_button 'Disable Merchant'
 
       expect(page).to have_content("The account for #{@megan.name} is now disabled.")
-      expect(current_path).to eq(admin_merchant_index_path)
+      expect(current_path).to eq(admin_merchants_path)
 
       expect(@megan.reload.enabled).to eq(false)
       expect(@giant.reload.active).to eq(false)
@@ -38,7 +38,7 @@ RSpec.describe 'Admin' do
       click_button 'Enable Merchant'
 
       expect(page).to have_content("The account for #{@megan.name} is now enabled.")
-      expect(current_path).to eq(admin_merchant_index_path)
+      expect(current_path).to eq(admin_merchants_path)
       expect(@ogre.reload.active).to eq(true)
       expect(@giant.reload.active).to eq(true)
       expect(@megan.reload.enabled).to eq(true)

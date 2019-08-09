@@ -20,5 +20,5 @@
 
 <% if current_admin? %>
   <%= button_to 'Edit', edit_merchant_path(@merchant), method: :get %>
-  <%= button_to 'Delete', delete_merchant_path(@merchant), method: :delete if @merchant.order_items.empty? %>
+  <%= button_to 'Delete', merchant_path(@merchant), method: :delete if @merchant.order_items.empty? %>
 <% end %>

@@ -50,7 +50,7 @@ RSpec.describe 'Delete Item' do
         end
 
         it 'I can not delete an item with orders through a direct request' do
-          page.driver.submit :delete, admin_delete_item_path(@megan,@giant), {}
+          page.driver.submit :delete, admin_merchant_item_path(@megan,@giant), {}
 
           expect(page).to have_content("#{@giant.name} can not be deleted - it has been ordered!")
         end

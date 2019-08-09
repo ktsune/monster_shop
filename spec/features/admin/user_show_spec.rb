@@ -7,7 +7,7 @@ RSpec.describe 'Admin' do
         @user = User.create(name: "Tyler", address: "123 Clarkson St", city: "Denver", state: "CO", zip: 80209, email: "user@gmail.com", password: "cheetos", role: "user")
         @megan = Merchant.create!(name: 'Megans Marmalades', address: '123 Main St', city: 'Denver', state: 'CO', zip: 80218)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@larry)
-        visit admin_user_show_path(@user)
+        visit admin_user_path(@user)
       end
 
       it "I see the same information the user would see themselves" do
@@ -23,7 +23,7 @@ RSpec.describe 'Admin' do
 
       it "I see a link to edit their profile" do
         click_on 'Edit Profile'
-        expect(current_path).to eq(admin_user_edit_path(@user.id))
+        expect(current_path).to eq(edit_admin_user_path(@user.id))
 
         expect(page).to_not have_content("Password")
         fill_in "Name", with: "Roger Rabbit"
@@ -36,7 +36,7 @@ RSpec.describe 'Admin' do
         click_on "Update Profile"
 
         expect(page).to have_content("This user has been updated")
-        expect(current_path).to eq(admin_user_show_path(@user))
+        expect(current_path).to eq(admin_user_path(@user))
 
         @user.reload
 
@@ -47,7 +47,7 @@ RSpec.describe 'Admin' do
 
       it "I see a flash when I dont edit the user properly" do
         click_on 'Edit Profile'
-        expect(current_path).to eq(admin_user_edit_path(@user.id))
+        expect(current_path).to eq(edit_admin_user_path(@user.id))
 
         expect(page).to_not have_content("Password")
         fill_in "Name", with: "Roger Rabbit"

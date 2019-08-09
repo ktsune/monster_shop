@@ -26,7 +26,7 @@ RSpec.describe 'Package Order' do
         click_on 'Login'
       end
 
-      visit merchant_orders_path(@order)
+      visit merchant_order_path(@order)
       click_on 'Fulfill'
       expect(@order.order_items.where(item_id: @giant.id).first.status).to eq("fulfilled")
 
@@ -44,7 +44,7 @@ RSpec.describe 'Package Order' do
         click_on 'Login'
       end
 
-      visit merchant_orders_path(@order)
+      visit merchant_order_path(@order)
       click_on 'Fulfill'
       expect(@order.order_items.where(item_id: @hippo.id).first.status).to eq("fulfilled")
       @order.reload

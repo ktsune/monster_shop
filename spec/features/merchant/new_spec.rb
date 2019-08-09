@@ -43,10 +43,10 @@ RSpec.describe 'New Merchant Creation' do
       click_link 'Merchants'
 
       expect(page).to have_content('Admin Merchant Index')
-      expect(current_path).to eq(admin_merchant_index_path)
+      expect(current_path).to eq(admin_merchants_path)
 
       click_link 'New Merchant'
-      expect(current_path).to eq(new_merchant_path)
+      expect(current_path).to eq(new_admin_merchant_path)
       name = 'Megans Marmalades'
       address = '123 Main St'
       city = "Denver"
@@ -72,10 +72,10 @@ RSpec.describe 'New Merchant Creation' do
       click_link 'Merchants'
 
       expect(page).to have_content('Admin Merchant Index')
-      expect(current_path).to eq(admin_merchant_index_path)
+      expect(current_path).to eq(admin_merchants_path)
 
       click_link 'New Merchant'
-      expect(current_path).to eq(new_merchant_path)
+      expect(current_path).to eq(new_admin_merchant_path)
       name = 'Megans Marmalades'
       fill_in 'Name', with: name
       click_button 'Create Merchant'

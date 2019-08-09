@@ -48,14 +48,14 @@ class Admin::MerchantsController < Admin::BaseController
     @merchant.items_active
     @merchant.update(enabled: true)
     flash[:success] = "The account for #{@merchant.name} is now enabled."
-    redirect_to admin_merchant_index_path
+    redirect_to admin_merchants_path
   end
 
   def disable
     @merchant.items_inactive
     @merchant.update(enabled: false)
     flash[:success] = "The account for #{@merchant.name} is now disabled."
-    redirect_to admin_merchant_index_path
+    redirect_to admin_merchants_path
   end
 
   private
