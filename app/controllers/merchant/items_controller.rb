@@ -10,7 +10,7 @@ class Merchant::ItemsController < Merchant::BaseController
     flash[:success] = "#{@item.name} has been fulfilled."
     order = Order.find(params[:order_id])
     order.fulfilled?
-    redirect_to merchant_orders_path(order)
+    redirect_to merchant_order_path(order)
   end
 
   def index

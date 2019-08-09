@@ -17,7 +17,7 @@ RSpec.describe 'Destroy Existing Merchant' do
     end
 
     it 'I can click button to destroy merchant from database' do
-      visit admin_merchant_show_path(@brian)
+      visit admin_merchant_path(@brian)
 
       click_button 'Delete'
 
@@ -35,7 +35,7 @@ RSpec.describe 'Destroy Existing Merchant' do
 
     describe 'If a merchant has items that have been ordered' do
       it 'I do not see a button to delete the merchant' do
-        visit admin_merchant_show_path(@megan)
+        visit admin_merchant_path(@megan)
 
         expect(page).to_not have_button('Delete')
       end

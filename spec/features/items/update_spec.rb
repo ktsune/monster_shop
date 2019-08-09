@@ -17,7 +17,7 @@ RSpec.describe 'Update Item Page' do
         click_button 'Update Item'
       end
 
-      expect(current_path).to eq(edit_item_path(@ogre.id))
+      expect(current_path).to eq(update_item_path(@ogre.id))
     end
 
     it 'I can edit the items information' do

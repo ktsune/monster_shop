@@ -14,7 +14,7 @@ RSpec.describe 'New Merchant Item' do
 
       click_button 'New Item'
 
-      expect(current_path).to eq(admin_new_item_path(@megan))
+      expect(current_path).to eq(new_admin_merchant_item_path(@megan))
     end
 
     it 'I can create an  item for a merchant' do
@@ -24,7 +24,7 @@ RSpec.describe 'New Merchant Item' do
       image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw'
       inventory = 5
 
-      visit admin_new_item_path(@megan)
+      visit new_admin_merchant_item_path(@megan)
 
       fill_in 'Name', with: name
       fill_in 'Description', with: description
@@ -44,7 +44,7 @@ RSpec.describe 'New Merchant Item' do
     it 'I can not create an item for a merchant with an incomplete form' do
       name = 'Ogre'
 
-      visit admin_new_item_path(@megan)
+      visit new_admin_merchant_item_path(@megan)
 
       fill_in 'Name', with: name
       click_button 'Create Item'

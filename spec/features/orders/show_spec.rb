@@ -30,8 +30,7 @@ RSpec.describe 'Show Order' do
 
       expect(current_path).to eq(profile_orders_path)
       click_link "Order ##{order.id}"
-      expect(current_path).to eq(profile_order_path(order.id))
-
+      expect(current_path).to eq(show_order_path(order.id))
       within "#order-#{order.id}" do
         expect(page).to have_content(order.id)
         expect(page).to have_content(order.created_at)

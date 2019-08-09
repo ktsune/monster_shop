@@ -1,10 +1,10 @@
 <h2>Admin Merchant Index</h2>
 
-<%= link_to 'New Merchant', new_merchant_path %>
+<%= link_to 'New Merchant', new_admin_merchant_path %>
 
 <% @merchants.each do |merchant| %>
   <section id='merchant-<%= merchant.id %>'>
-    <h4><%= link_to merchant.name, admin_merchant_show_path(merchant) %></h4>
+    <h4><%= link_to merchant.name, admin_merchant_path(merchant) %></h4>
     <p>City: <%= merchant.city %></p>
     <p>State: <%= merchant.state %></p>
     <% if merchant.enabled == true %>

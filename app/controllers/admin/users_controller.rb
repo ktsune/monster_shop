@@ -21,7 +21,7 @@ class Admin::UsersController < Admin::BaseController
     end
     if @user.update_attributes(user_params)
       flash[:success] = "This user has been updated"
-      redirect_to admin_user_show_path(@user)
+      redirect_to admin_user_path(@user)
     else
       generate_flash(@user)
       render :edit
@@ -31,13 +31,13 @@ class Admin::UsersController < Admin::BaseController
   def enable
     @user.update(enabled: true)
     flash[:success] = "The account for #{@user.name} is now enabled."
-    redirect_to admin_user_index_path
+    redirect_to admin_users_path
   end
 
   def disable
     @user.update(enabled: false)
     flash[:success] = "The account for #{@user.name} is now disabled."
-    redirect_to admin_user_index_path
+    redirect_to admin_users_path
   end
 
   private

@@ -11,11 +11,11 @@
     <% else %>
       <li><%= button_to "Enable Item", admin_enable_item_path(@merchant,item) %></li>
     <% end %>
-    <li><%= button_to "Update Item", admin_edit_item_path(@merchant, item), method: :get %></li>
+    <li><%= button_to "Update Item", edit_admin_merchant_item_path(@merchant, item), method: :get %></li>
     <% if item.order_items.empty? %>
       <li><%= button_to "Delete Item", { id: item.id, action: "destroy" }, method: :delete %></li>
     <% end %>
   </ul>
 <% end %>
 
-<%= button_to "New Item", admin_new_item_path(@merchant), method: :get %>
+<%= button_to "New Item", new_admin_merchant_item_path(@merchant), method: :get %>

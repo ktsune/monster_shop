@@ -4,6 +4,7 @@
 <p>Order Updated: <%= @order.updated_at %></p>
 <p>Order Status: <%= @order.status %></p>
 </section>
+
 <% @order.items.each do |item| %>
   <section id='item-<%= item.id%>'>
     <h2><%= link_to item.name, "/items/#{item.id}" %></h2>

@@ -1,7 +1,7 @@
 <h1>Users</h1>
 <% @users.each do |user| %>
   <section id="user-<%= user.id %>">
-    <p><%= link_to user.name, admin_user_show_path(user.id) %>
+    <p><%= link_to user.name, admin_user_path(user.id) %>
       Registered: <%= user.created_at %> Role: <%= user.role.capitalize %></p>
     <section id="disable-user-<%= user.id %>">
       <% if user.enabled == true %>

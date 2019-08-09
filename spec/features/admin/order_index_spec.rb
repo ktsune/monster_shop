@@ -33,25 +33,25 @@ RSpec.describe 'Admin' do
 
     it 'I can see all orders in the system sorted by status' do
       within "#order-#{@packaged.id}" do
-        expect(page).to have_link(@reg_user.name, href: admin_user_show_path(@reg_user.id))
+        expect(page).to have_link(@reg_user.name, href: admin_user_path(@reg_user.id))
         expect(page).to have_content("Order: ##{@packaged.id}")
         expect(page).to have_content("Created: #{@packaged.created_at}")
       end
 
       within "#order-#{@pending.id}" do
-        expect(page).to have_link(@employee.name, href: admin_user_show_path(@employee.id))
+        expect(page).to have_link(@employee.name, href: admin_user_path(@employee.id))
         expect(page).to have_content("Order: ##{@pending.id}")
         expect(page).to have_content("Created: #{@pending.created_at}")
       end
 
       within "#order-#{@shipped.id}" do
-        expect(page).to have_link(@reg_user.name, href: admin_user_show_path(@reg_user.id))
+        expect(page).to have_link(@reg_user.name, href: admin_user_path(@reg_user.id))
         expect(page).to have_content("Order: ##{@shipped.id}")
         expect(page).to have_content("Created: #{@shipped.created_at}")
       end
 
       within "#order-#{@canceled.id}" do
-        expect(page).to have_link(@employee.name, href: admin_user_show_path(@employee.id))
+        expect(page).to have_link(@employee.name, href: admin_user_path(@employee.id))
         expect(page).to have_content("Order: ##{@canceled.id}")
         expect(page).to have_content("Created: #{@canceled.created_at}")
       end

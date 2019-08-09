@@ -13,9 +13,9 @@ RSpec.describe 'Admin' do
       @meg = User.create!(name: 'Megan M', address: '123 Main St', city: 'Denver', state: 'CO', zip: 80218, email: 'meg@gmail.com', password: 'fish' )
       @larry = User.create!(name: "Larry Green", address: "345 Blue Lane", city: "Blue City", state: "CA", zip: 56789, email: "green@gmail.com", password: "frogs", role: "admin")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@larry)
-      visit admin_merchant_index_path
+      visit admin_merchants_path
       click_on @megan.name
-      expect(current_path).to eq(admin_merchant_show_path(@megan))
+      expect(current_path).to eq(admin_merchant_path(@megan))
     end
 
     it 'I see merchant name and address' do

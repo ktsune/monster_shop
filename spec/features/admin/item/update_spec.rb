@@ -17,7 +17,7 @@ RSpec.describe 'Update Item Page' do
         click_button 'Update Item'
       end
 
-      expect(current_path).to eq(admin_edit_item_path(@megan,@ogre))
+      expect(current_path).to eq(edit_admin_merchant_item_path(@megan,@ogre))
     end
 
     it 'I can edit the items information' do
@@ -27,7 +27,7 @@ RSpec.describe 'Update Item Page' do
       image = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaLM_vbg2Rh-mZ-B4t-RSU9AmSfEEq_SN9xPP_qrA2I6Ftq_D9Qw'
       inventory = 12
 
-      visit admin_edit_item_path(@megan,@ogre)
+      visit edit_admin_merchant_item_path(@megan,@ogre)
 
       fill_in 'Name', with: name
       fill_in 'Description', with: description
@@ -46,7 +46,7 @@ RSpec.describe 'Update Item Page' do
 
     it 'I can not edit the item with an incomplete form' do
       name = 'Ogre'
-      visit admin_edit_item_path(@megan,@ogre.id)
+      visit edit_admin_merchant_item_path(@megan,@ogre.id)
       fill_in 'Name', with: ''
       fill_in 'Description', with: ''
       fill_in 'Price', with: ''

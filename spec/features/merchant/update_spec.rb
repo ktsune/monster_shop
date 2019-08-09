@@ -9,7 +9,7 @@ RSpec.describe 'Existing Merchant Update' do
     end
 
     it 'I can link to an edit merchant page from merchant show page' do
-      visit admin_merchant_show_path(@megan)
+      visit admin_merchant_path(@megan)
       click_button 'Edit'
 
       expect(current_path).to eq(edit_merchant_path(@megan))
@@ -33,7 +33,7 @@ RSpec.describe 'Existing Merchant Update' do
       expect(page).to have_content(name)
       expect(page).to_not have_content(@megan.name)
       expect(page).to have_content(address)
-      expect(page).to have_content("#{city} #{state} #{zip}") 
+      expect(page).to have_content("#{city} #{state} #{zip}")
     end
 
     it 'I can not edit a merchant with an incomplete form' do
