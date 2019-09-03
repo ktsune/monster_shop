@@ -45,14 +45,14 @@ https://github.com/ktsune/monster_shop
 ### Instructions
 
 #### How to setup:
-  1. Clone the GitHub repository.
-  2. Go to the directory with the new repo.  Run bundle install.
-  3. Run rake db:{create,migrate,seed}
-  4. Run rails s, visit localhost:3000 to view the app and navigate on your local server.
+    1. Clone the GitHub repository.
+    2. Go to the directory with the new repo. Run bundle install.
+    3. Run rake db:{create,migrate,seed}
+    4. Run rails s, visit localhost:3000 to view the app and navigate on your local server.
 #### Run tests:
     1. Run rspec.
     2. To run an individual test, type rspec and the full path to the test file into the command line.
 #### Sample login credentials for users:
-    1. Login as an admin: email admin@email.com, password: password
-    2. Login as a merchant: email merchant@email.com, password: pw123
+    1. Login as an admin: email jeff@gmail.com, password: jeff
+    2. Login as a merchant: email green@gmail.com, password: frogs
     3. Login as a customer: *create your own user account*
