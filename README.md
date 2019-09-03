@@ -25,7 +25,7 @@ Project management tool: GitHub Projects.
 ## Contributors
 - Sarah Tatro
 - Jake Miller 
-- Tyler Bierworth 
+- [Tyler Bierwirth] (https://github.com/tbierwirth)
 - Martha Troubh
 
 ## System Requirements
@@ -33,7 +33,6 @@ Project management tool: GitHub Projects.
 - ActiveRecord - PostgreSQL
 
 ### Gems Used
----
 - Bcrypt
 - Capybara
 - FactoryBot
