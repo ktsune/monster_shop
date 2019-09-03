@@ -3,6 +3,7 @@
 Monster Shop is a fictitious e-commerce application that has admins, merchants, registered users, and visitors. Our application allows admins to manage all users. Merchants can fulfill orders, change order status and enable/disable items. Registered users and visitors can browse the items, place items in their shopping cart and checkout. Customers of the site can register and log in.
 
 #### Objective and Implementation 
+---
 This group project was completed in 10 days as a requirement for Module 2 at Turing School of Software and Design.
 
 The project was built using Rails which implements the following:
@@ -20,16 +21,19 @@ Version control using GitHub.
 Project management tool: GitHub Projects.
 
 ### Contributors
+---
 - Sarah Tatro
 - Jake Miller 
 - Tyler Bierworth 
 - Martha Troubh
 
 ### System Requirements
+---
 - Rails 5.x
 - ActiveRecord - PostgreSQL
 
 ### Gems Used
+---
 - Bcrypt
 - Capybara
 - FactoryBot
@@ -40,9 +44,11 @@ Project management tool: GitHub Projects.
 - Simplecov
 
 ### GitHub Repository
+---
 https://github.com/ktsune/monster_shop
 
 ### Instructions
+---
 
 #### How to setup:
     1. Clone the GitHub repository.
